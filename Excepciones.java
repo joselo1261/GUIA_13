@@ -19,5 +19,9 @@ public class Excepciones{
     }
 }
 
+    @Override
+    public String toString() {
+        return "Excepciones []";
+    }
 
 }
