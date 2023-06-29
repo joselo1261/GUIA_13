@@ -4,43 +4,56 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class DivisionNumeroMain {
-   public static void main(String[] args) {
-        try (Scanner sc = new Scanner(System.in)) {
-            try {
-                DivisionNumero asd = new DivisionNumero();
-                DivisionNumero asd2 = new DivisionNumero();
-                System.out.println("Ingrese el primer numero");
-                String num = sc.next();
-                System.out.println("Ingrese el segundo numero");
-                String num2 = sc.next();
-                System.out.println("Ingrese otro numero");
-                int num5 = sc.nextInt();
-                int num3 = Integer.parseInt(num);
-                int num4 = Integer.parseInt(num2);
-                
-                asd.division(num3, num4);
-                asd2.division(num3, num5);
 
-            } catch (ArithmeticException e) {
+public static void main(String[] args) {
+            
+            boolean error = false;
+            DivisionNumero div1 = new DivisionNumero();
+            DivisionNumero div2 = new DivisionNumero();
+
+            do{
+            try {
+                Scanner sc = new Scanner(System.in);
+                System.out.print("Ingrese el primer numero => ");
+                String numStr = sc.next();
+                int num = Integer.parseInt(numStr);
+                System.out.print("Ingrese el segundo numero => ");
+                String num1Str = sc.next();
+                int num1 = Integer.parseInt(num1Str);
+                System.out.print("Ingrese un tercer numero => ");
+                int num2 = sc.nextInt();
+                error=false;
+                div1.division(num, num1);
+                div2.division(num1, num2);
+
+                } catch (ArithmeticException e) {
+                System.out.println("\nTipo de Error:");
+                System.out.println("..............");
                 System.out.println("Error: " + e.getMessage() );
                 System.out.println("Error: " + e);
                 System.out.println(e.fillInStackTrace());
                 System.out.println("No se puede dividir por 0");
-            } catch (NumberFormatException e){
+                error=true;
+                } catch (NumberFormatException e){
+                System.out.println("\nTipo de Error:");
+                System.out.println("..............");
                 System.out.println("Error: " + e.getMessage());
                 System.out.println("Error: " + e);
                 System.out.println(e.fillInStackTrace());
-                System.out.println("Deben ser numeros, NO LETRAS Ã‘OÃ‘O");
-            } catch (InputMismatchException e){
+                System.out.println("Deben ser numeros, No Otro Caracter");
+                error=true;
+                } catch (InputMismatchException e){
+                System.out.println("\nTipo de Error:");
+                System.out.println("..............");
                 System.out.println("Error: " + e.getMessage());
                 System.out.println("Error: " + e);
                 System.out.println(e.fillInStackTrace());
-                System.out.println("Deber ser numerooooooos!! BLANDA!");
-            } finally {
-                System.out.println("Saliendo del program EGG! Aguante Belgrano!");
-            }
-        }
-
-    }
-
-}
+                System.out.println("Deben ser numeros, No Otro Caracter");
+                error=true;
+                } finally {
+                System.out.println("Saliendo del programa");
+                } 
+            } while (error);
+            
+    }     
+} 
