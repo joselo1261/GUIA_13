@@ -8,8 +8,8 @@ package Ejercicio3_Guia13;
 public class DivisionNumero {
     public void division(int numA,int numB){
         
-        double  resultado = numA / numB ;
-        System.out.println("La division de los numeros es: " + resultado);
+        float  resultado = numA / numB ;
+        System.out.println("\nLa division de los numeros es: " + resultado);
         
     }
 }

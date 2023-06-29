@@ -8,13 +8,14 @@ public class DivisionNumeroMain {
 public static void main(String[] args) {
             
             boolean error = false;
+            Scanner sc = null; // Declarar el Scanner fuera del bucle
             DivisionNumero div1 = new DivisionNumero();
             DivisionNumero div2 = new DivisionNumero();
 
             do{
-            try {
-                Scanner sc = new Scanner(System.in);
-                System.out.print("Ingrese el primer numero => ");
+                try {
+                sc = new Scanner(System.in); // Inicializar el Scanner dentro del bucle
+                System.out.print("\nIngrese el primer numero => ");
                 String numStr = sc.next();
                 int num = Integer.parseInt(numStr);
                 System.out.print("Ingrese el segundo numero => ");
@@ -52,8 +53,8 @@ public static void main(String[] args) {
                 error=true;
                 } finally {
                 System.out.println("Saliendo del programa");
-                } 
+                }
             } while (error);
-            
-    }     
+            sc.close(); // Cerrar el Scanner fuera del bucle
+        }   
 } 
