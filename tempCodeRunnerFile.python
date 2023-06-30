@@ -1,0 +1,31 @@
+import random
+
+def main():
+    num_adivinar = random.randint(1, 500)
+    verde = "\033[32m"
+    print(f"{verde}Numero a Adivinar => {num_adivinar}")
+    intento = 0
+
+    print("\nADIVINA EL NUMERO")
+    print("-----------------")
+    print("El numero a adivinar debe estar entre 1 y 500")
+
+    adivino = False
+
+    while not adivino:
+        try:
+            num_jugar = int(input("Ingrese un numero: "))
+            intento += 1
+            if num_jugar == num_adivinar:
+                adivino = True
+                print(f"Has adivinado el numero {num_adivinar} en {intento} intentos")
+            elif num_jugar < num_adivinar:
+                print(f"El numero a adivinar es mayor que => {num_jugar}")
+            else:
+                print(f"El numero a adivinar es menor que => {num_jugar}")
+        except ValueError:
+            intento += 1
+            print("Debe ingresar solo numeros")
+
+if __name__ == "__main__":
+    main()
